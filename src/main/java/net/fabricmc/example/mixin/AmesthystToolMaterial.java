@@ -4,34 +4,37 @@ import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
-public class PotatoToolMaterial implements ToolMaterial {
+public class AmesthystToolMaterial implements ToolMaterial {
+
+    public static final AmesthystToolMaterial INSTANCE = new AmesthystToolMaterial();
+
     @Override
-    public int getDurability(){
-        return 500;
+    public int getDurability() {
+        return 132;
     }
 
     @Override
     public float getMiningSpeedMultiplier() {
-        return 9.0F;
+        return 8;
     }
 
     @Override
     public float getAttackDamage() {
-        return 10.0F;
+        return 8;
     }
 
     @Override
     public int getMiningLevel() {
-        return 4;
+        return 6;
     }
 
     @Override
     public int getEnchantability() {
-        return 40;
+        return 19;
     }
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(Items.POTATO);
+        return Ingredient.ofItems(Items.AMETHYST_SHARD);
     }
 }

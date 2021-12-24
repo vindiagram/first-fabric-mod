@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [16, 16],
 	"textures": {
-		"1": "resources/assets/modid/tutorial/textures/items/meister.png",
-		"3": "resources/assets/modid/tutorial/textures/items/amethyst_block.png",
+		"1": "tutorial:item/meister",
+		"3": "tutorial:item/amethyst_block",
 		"particle": "block/amethyst_block"
 	},
 	"elements": [

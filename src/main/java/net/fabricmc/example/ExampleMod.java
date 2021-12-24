@@ -2,7 +2,6 @@ package net.fabricmc.example;
 
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.example.mixin.AmesthystToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.SwordItem;
@@ -24,7 +23,7 @@ public class ExampleMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		Registry.register(Registry.ITEM, new Identifier("tutorial", "AMETHYST_SWORD"), AMETHYST_SWORD);
+		Registry.register(Registry.ITEM, new Identifier("tutorial", "amethyst-sword"), AMETHYST_SWORD);
 
 
 	}

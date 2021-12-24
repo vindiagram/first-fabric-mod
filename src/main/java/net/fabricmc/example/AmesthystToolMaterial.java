@@ -1,4 +1,4 @@
-package net.fabricmc.example.mixin;
+package net.fabricmc.example;
 
 import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;

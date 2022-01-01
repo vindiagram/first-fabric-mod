@@ -2,7 +2,9 @@ package com.github.vindiagram.item;
 
 
 import com.github.vindiagram.entity.PotatoProjectileEntity;
+import java.util.List;
 import java.util.function.Predicate;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -12,9 +14,14 @@ import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 public class PotatoGunItem extends Item {
 
@@ -25,7 +32,9 @@ public class PotatoGunItem extends Item {
   private static final String READY_KEY = "PotatoGunReady";
 
   public PotatoGunItem() {
-    super(new Item.Settings().maxCount(1).group(ItemGroup.COMBAT).maxDamage(1000).fireproof());
+    super(
+        new Item.Settings().maxCount(1).group(ItemGroup.COMBAT).maxDamage(1000).fireproof().rarity(
+            Rarity.EPIC));
   }
 
   /**
@@ -187,5 +196,21 @@ public class PotatoGunItem extends Item {
       world.playSound(null, user.getX(), user.getY(), user.getZ(),
           SoundEvents.ITEM_CROSSBOW_LOADING_END, SoundCategory.PLAYERS, 1.0f, 4.0f);
     }
+  }
+
+  @Override
+  public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip,
+      TooltipContext context) {
+    Text projectileText =
+        isReady(stack) ? new ItemStack(Items.POTATO).toHoverableText() : new LiteralText("[]");
+    tooltip.add(new TranslatableText("item.minecraft.crossbow.projectile").append(" ")
+        .append(projectileText));
+
+    int damage = (int) ((stack.getMaxDamage() - stack.getDamage()) / (float) stack.getMaxDamage()
+        * 100);
+
+    StringBuilder builder = new StringBuilder();
+    builder.append("Mana: ").append(damage).append("%");
+    tooltip.add(new LiteralText(builder.toString()));
   }
 }

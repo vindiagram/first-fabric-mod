@@ -36,10 +36,10 @@ public class ExampleMod implements ModInitializer {
     public void onInitialize() {
         // Register custom items.
         Registry.register(Registry.ITEM, new Identifier("tutorial", "amethyst-sword"), AMETHYST_SWORD);
-        Registry.register(Registry.ITEM, new Identifier("potato-gun", "potato-gun"), POTATO_GUN);
+        Registry.register(Registry.ITEM, new Identifier("potatogun", "potatogun"), POTATO_GUN);
 
         // Register custom entities.
-        Registry.register(Registry.ENTITY_TYPE, new Identifier("potato-gun", "potato_gun_projectile"), POTATO_PROJECTILE);
+        Registry.register(Registry.ENTITY_TYPE, new Identifier("potatogun", "potato_gun_projectile"), POTATO_PROJECTILE);
     }
 
 }
